@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
   void Update() {
     int healthLost = player.GetHealthLost();
     if (healthLost >= player.startingHealth) {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+      SceneManager.LoadScene("GameOver");
     }
 
     float dt = Time.deltaTime;
