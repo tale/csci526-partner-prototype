@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour {
 
   void Update() {
     int healthLost = player.GetHealthLost();
-    if (healthLost >= player.startingHealth) {
+    float cameraBottom = mainCamera.transform.position.y - mainCamera.orthographicSize;
+    float playerTop = player.transform.position.y + player.transform.localScale.y / 2f;
+    if (healthLost >= player.startingHealth || playerTop < cameraBottom) {
       SceneManager.LoadScene("GameOver");
     }
 
