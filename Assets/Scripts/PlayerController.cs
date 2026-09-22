@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     health = startingHealth;
   }
 
-  void Update() {
+  void FixedUpdate() {
     float moveInput = moveAction.ReadValue<float>();
     rigidBody.linearVelocity = new Vector2(moveInput * horizontalSpeed, game.scrollSpeed);
 
