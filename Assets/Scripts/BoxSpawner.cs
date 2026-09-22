@@ -5,14 +5,16 @@ public class BoxSpawner : MonoBehaviour {
   public GameManager game;
   public int laneCount = 6;
   public float rowSpacing = 3f;
+  public float spacingScale = 0.5f;
   public float boxChance = 0.4f;
 
   float nextRowY = 6f;
 
   void Update() {
-    while (nextRowY < game.CameraTop + rowSpacing) {
+    float spacing = rowSpacing * Mathf.Pow(game.scrollSpeed / game.startScrollSpeed, spacingScale);
+    while (nextRowY < game.CameraTop + spacing) {
       SpawnRow(nextRowY);
-      nextRowY += rowSpacing;
+      nextRowY += spacing;
     }
   }
 
